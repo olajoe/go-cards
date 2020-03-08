@@ -54,6 +54,13 @@ func newDecFromFile(filename string) deck {
 		fmt.Println("Error:", err)
 		os.Exit(1)
 	}
-	s := strings.Split(string(byteSlice), ',')
+	s := strings.Split(string(byteSlice), ",")
 	return deck(s)
+}
+
+func (d deck) shuffle() {
+	for i := range d {
+		newPosition := rand.Intn(len(d)-1)
+		d[i],d[newPosition] := d[newPosition], d[i]
+	}
 }

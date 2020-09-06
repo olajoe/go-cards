@@ -48,7 +48,7 @@ func (d deck) saveToFile(filename string) error {
 	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }
 
-func newDecFromFile(filename string) deck {
+func newDeckFromFile(filename string) deck {
 	byteSlice, err := ioutil.ReadFile(filename)
 	if err != nil {
 		// Option #1 - log the error and return a call to newDeck()
